@@ -1166,7 +1166,7 @@ function App() {
   ];
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: "#11131a", fontFamily: "var(--font)" }}>
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: "#11131a", fontFamily: "var(--font)", paddingBottom: role === "manager" && compact ? "calc(80px + env(safe-area-inset-bottom))" : 0 }}>
       {!isOnline && (
         <div style={{ background: "#f59e0b", color: "white", padding: 12, textAlign: "center", fontWeight: 600, fontSize: 14 }}>
           אתה בחוץ מהרשת — עובד על מטמון מקומי
@@ -1221,7 +1221,7 @@ function App() {
               </div>
             </header>
 
-            <div style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: compact ? "18px 16px calc(120px + env(safe-area-inset-bottom))" : "28px 28px 40px" }}>
+            <div style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: compact ? "18px 16px 18px" : "28px 28px 40px" }}>
               {role === "driver" ? (
                 <DriverView me={me} drivers={drivers} orders={orders} onPickMe={setMeId}
                   onOpen={o => setSheetId(o.id)} onAdvance={advance} />
@@ -1237,8 +1237,8 @@ function App() {
 
             {/* bottom tabs (compact manager) */}
             {role === "manager" && compact && (
-              <nav style={{ position: "absolute", bottom: 0, insetInline: 0, height: 72, background: "var(--surface)",
-                borderTop: "1px solid var(--line)", display: "flex", alignItems: "stretch", paddingBottom: 8 }}>
+              <nav style={{ position: "fixed", bottom: 0, insetInline: 0, height: 72, background: "var(--surface)",
+                borderTop: "1px solid var(--line)", display: "flex", alignItems: "stretch", paddingBottom: "max(8px, env(safe-area-inset-bottom))", zIndex: 100 }}>
                 {navItems.map(n => {
                   const on = route === n.id;
                   if (n.id === "new") return (
