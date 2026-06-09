@@ -1221,7 +1221,7 @@ function App() {
               </div>
             </header>
 
-            <div style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: compact ? "18px 16px 96px" : "28px 28px 40px" }}>
+            <div style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: compact ? "18px 16px calc(120px + env(safe-area-inset-bottom))" : "28px 28px 40px" }}>
               {role === "driver" ? (
                 <DriverView me={me} drivers={drivers} orders={orders} onPickMe={setMeId}
                   onOpen={o => setSheetId(o.id)} onAdvance={advance} />
