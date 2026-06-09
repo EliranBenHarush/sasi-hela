@@ -1166,7 +1166,7 @@ function App() {
   ];
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: "#11131a", fontFamily: "var(--font)", paddingBottom: role === "manager" && compact ? "calc(80px + env(safe-area-inset-bottom))" : 0 }}>
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: "#11131a", fontFamily: "var(--font)" }}>
       {!isOnline && (
         <div style={{ background: "#f59e0b", color: "white", padding: 12, textAlign: "center", fontWeight: 600, fontSize: 14 }}>
           אתה בחוץ מהרשת — עובד על מטמון מקומי
@@ -1175,7 +1175,7 @@ function App() {
       {/* STAGE */}
       <div style={{ flex: 1, minHeight: 0, display: "flex", justifyContent: "center", alignItems: "stretch",
         padding: 0 }}>
-        <div style={{ ...themeStyle, position: "relative", overflow: "hidden", background: "var(--bg)", color: "var(--ink)",
+        <div style={{ ...themeStyle, position: "relative", background: "var(--bg)", color: "var(--ink)",
           width: "100%", maxWidth: "none",
           height: "100%", borderRadius: 0,
           border: "none",
